@@ -1,4 +1,14 @@
 #词频统计多角度迭代
+# WordCount
+# 	1）input: 1/n文件 文件夹 后缀名
+# 	hello spark
+# 	hello hadoop
+# 	hello welcome
+# 	2)开发步骤分析
+# 	文本内容的每一行转成一个个的单词 ：flatMap
+# 	单词 ==>（单词，1）: map
+# 	把所有相同单词的技术相加得到最终的结果 reduceByKey
+
 import sys
 # import os
 # os.environ['JAVA_HOME'] = 'D:\Program Files\Java\jdk1.8.0_144'
