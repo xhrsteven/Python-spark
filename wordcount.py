@@ -25,17 +25,18 @@ if __name__ == '__main__':
 
     def printresult():
         counts = sc.textFile(sys.argv[1]) \
-            .flatMap(lambda line: line.split("\t")) \
+            .flatMap(lambda line: line.split(" ")) \
             .map(lambda x: (x, 1)) \
             .reduceByKey(lambda a, b: a + b)
 
         output = counts.collect()
         for (word, count) in output:
             print("%s ： %i" % (word, count))
-
+    printresult()
+    
     def saveFile():
         sc.textFile(sys.argv[1]) \
-            .flatMap(lambda line: line.split("\t")) \
+            .flatMap(lambda line: line.split(" ")) \
             .map(lambda x: (x, 1)) \
             .reduceByKey(lambda a, b: a + b) \
             .saveAsTextFile(sys.argv[2])
